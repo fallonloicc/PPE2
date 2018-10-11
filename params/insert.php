@@ -12,8 +12,10 @@
 
 ?>
 <h1>Ajouter Bornes</h1>
-<input type="text" placeholder="Prix" name="prix">
-<input type="text" placeholder="Libelle" name="libelle">
-<input type="text" placeholder="Adresse Mac" name="mac">
-<input type="text" placeholder="Adresse IP" name="ip">
-<button type="submit" class="btn btn-primary" id="sendMessageButton">Envoyez</button>
+<form action="" method="POST">
+  <input type="text" placeholder="Prix" name="prix">
+  <input type="text" placeholder="Libelle" name="libelle">
+  <input type="text" placeholder="Adresse Mac" name="mac">
+  <input type="text" placeholder="Adresse IP" name="ip">
+  <button type="submit" class="btn btn-primary" id="sendMessageButton">Envoyez</button>
+</form>
