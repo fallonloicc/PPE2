@@ -7,7 +7,7 @@
     $libelle = $_POST['libelle'];
     $mac = $_POST['mac'];
     $ip = $_POST['ip'];
-    $requete = 'INSERT INTO `bornes` ( `prix`, `libelle`, `adresseMac`, `adresseIP`) VALUES ( "'.$prix.'" , "'.libelle.'", "'.$mac.'", "'.$ip.'")';
+    $requete = 'INSERT INTO `bornes` ( `prix`, `libelle`, `adresseMac`, `adresseIP`) VALUES ( "'.$prix.'" , "'.$libelle.'", "'.$mac.'", "'.$ip.'")';
   }
 
 ?>
