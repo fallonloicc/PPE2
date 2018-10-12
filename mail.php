@@ -24,7 +24,7 @@
 		   empty($_POST['message'])	||
 		   !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
 		   {
-			echo "No arguments Provided!";
+			echo "Pas d'argument";
 			return false;
 		   }
 			
@@ -49,6 +49,7 @@
 	else 
 	{
 		// C'est un robot ou le code de vérification est incorrecte, mettre une erreur
+		echo "Validez le captcha";
 	}
 		
 ?>
