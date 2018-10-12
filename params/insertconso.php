@@ -1,11 +1,11 @@
 <?php
   include('db.php');
 
-  if (isset($_POST['libelle'], $_POST['stock'], $_POST['descr'], $_POST['prix']))
+  if (isset($_POST['libelle'], $_POST['stock'], $_POST['description'], $_POST['prix']))
   {
     $libelle = $_POST['libelle'];
     $stock = $_POST['stock'];
-    $descr = $_POST['description'];
+    $description = $_POST['description'];
     $prix = $_POST['prix'];
     $requete = 'INSERT INTO `consommables` ( `libelle`, `stock`, `description`, `prix`) VALUES ( "'.$libelle.'" , "'.$stock.'", "'.$description.'", "'.$prix.'")';
 
@@ -17,6 +17,6 @@
 <script>
 					setTimeout(function()
 					{
-					document.location.href="index.php";
+					document.location.href="/PPE2/PPE2/test.php";
 					},1250);
 </script>
