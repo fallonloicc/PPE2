@@ -18,5 +18,24 @@
       <input type="text" placeholder="Prix" name="prix">
       <button type="submit" class="btn btn-primary" id="sendMessageButton">Envoyez</button>
     </form>
-  </body>
-<html>
+
+    <h1>Ajouter / Retirer Stock</h1>
+        <form action="params/stock.php" method="POST">
+          <select name="choix">
+            <?php
+              include('params/db.php');
+              $req ='SELECT * FROM consommables';
+              $oui = $bdd->query($req);
+
+              while($requete = $oui->fetch())
+              {
+                echo "<option value ='".$requete->idConsosommables."'>".$requete->libelle."</option>";
+              }
+             ?>
+          </select>
+          <input type="text" placeholder="Combien ?" name="nombre">
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Envoyez</button>
+        </form>
+
+    </body>
+  </html>
