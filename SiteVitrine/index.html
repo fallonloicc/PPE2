@@ -19,13 +19,13 @@
   <header class="main-header" id="header">
     <div class="bg-color">
       <!--nav-->
-      <nav class="nav navbar-default navbar-fixed-top">
+      <nav class="nav navbar-default">
         <div class="container">
           <div class="col-md-12">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
-                            <span class="fa fa-bars"></span>
-                        </button>
+                <span class="fa fa-bars"></span>
+              </button>
               <a href="index.html" class="navbar-brand">Photobox</a>
             </div>
             <div class="collapse navbar-collapse navbar-right" id="mynavbar">
@@ -51,6 +51,7 @@
   </header>
   <!--/ header-->
   <!---->
+  <div id="presentation">
   <section id="cta-1">
     <div class="container">
       <div class="row">
@@ -60,9 +61,10 @@
       </div>
     </div>
   </section>
+  </div>
   <!---->
   <!---->
-  <section id="presentation" class="section-padding">
+  <section class="section-padding">
     <div class="container">
       <div class="row">
         <div class="col-md-3 wow fadeInLeft delay-05s">
@@ -133,7 +135,7 @@
           </div>
         </div>
         <div class="col-md-4 text-center">
-          <a href="#" class="btn btn-submit">Donnez de l'argent</a>
+          <a href="https://paypal.me/skyrule" class="btn btn-submit">Donnez de l'argent</a>
         </div>
       </div>
     </div>
@@ -153,33 +155,33 @@
         <div class="col-md-9 col-sm-12">
           <div class="col-md-4 col-sm-6 padding-right-zero">
             <div class="portfolio-box design">
-              <img src="img/port01.jpg" alt="" class="img-responsive">
+                <img src="img/port01.jpg" alt="" class="img-responsive">
             </div>
           </div>
           <div class="col-md-4 col-sm-6 padding-right-zero">
             <div class="portfolio-box design">
-              <img src="img/port02.jpg" alt="" class="img-responsive">
+                <img src="img/port02.jpg" alt="" class="img-responsive">
             </div>
           </div>
           <div class="col-md-4 col-sm-6 padding-right-zero">
             <div class="portfolio-box design">
-              <img src="img/port03.jpg" alt="" class="img-responsive">
+                <img src="img/port03.jpg" alt="" class="img-responsive">
             </div>
           </div>
           <div class="col-md-4 col-sm-6 padding-right-zero">
             <div class="portfolio-box design">
-              <img src="img/port04.jpg" alt="" class="img-responsive">
+                <img src="img/port04.jpg" alt="" class="img-responsive">
             </div>
           </div>
           <div class="col-md-4 col-sm-6 padding-right-zero">
             <div class="portfolio-box design">
-              <img src="img/port05.jpg" alt="" class="img-responsive">
+                <img src="img/port05.jpg" alt="" class="img-responsive">
             </div>
           </div>
           <div class="col-md-4 col-sm-6 padding-right-zero">
             <div class="portfolio-box design">
-              <img src="img/port06.jpg" alt="" class="img-responsive">
-            </div>
+                <img src="img/port06.jpg" alt=""class="img-responsive">
+            </div>  
           </div>
         </div>
       </div>
@@ -198,7 +200,7 @@
           </div>
         </div>
         <div class="col-md-12 col-sm-12">
-          <div class="col-md-4 col-sm-6" style="padding-left:0px;">
+          <div class="col-md-4 col-sm-6" >
             <h3 class="cont-title">Email</h3>
             <div id="sendmessage">Your message has been sent. Thank you!</div>
             <div id="errormessage"></div>
@@ -206,25 +208,24 @@
             <div class="contact-info">
               <form action="" method="post" role="form" class="contactForm">
                 <div class="form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Entre au moins 4 caractères stp" />
                   <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Entre un email valide stp" />
                   <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Entre un sujet de 8 caractères" />
                   <div class="validation"></div>
                 </div>
 
                 <div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="ECRIS NOUS" placeholder="Message"></textarea>
                   <div class="validation"></div>
                 </div>
-                <div class="g-recaptcha" data-sitekey="6LfHlnQUAAAAACGYAEHoQOnR1xL9B0EVp2_DaAmW" style="padding-bottom: 0.5vh";></div>
+                 <div class="g-recaptcha" data-sitekey="6LfHlnQUAAAAACGYAEHoQOnR1xL9B0EVp2_DaAmW" style="margin-bottom: 13px" ></div>
                 <button type="submit" class="btn btn-send">Envoyez</button>
-                </div>
               </form>
             </div>
           </div>
@@ -283,5 +284,6 @@
   <script src="js/custom.js"></script>
   <script src="contactform/contactform.js"></script>
   <script src='https://www.google.com/recaptcha/api.js?hl=fr'></script>
+  <script src="js/modal.js"></script>
 </body>
 </html>
