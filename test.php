@@ -19,4 +19,22 @@
       <button type="submit" class="btn btn-primary" id="sendMessageButton">Envoyez</button>
     </form>
   </body>
+  <h1>Ajouter Stock</h1>
+        <form action="params/stock.php" method="POST">
+          <select name="choix">
+            <?php
+              include('params/db.php');
+              $req ='SELECT * FROM consommables';
+              $oui = $bdd->query($req);
+ 
+              while($requete = $oui->fetch())
+              {
+                echo "<option value ='".$requete->idConsosomables."'>".$requete->libelle."</option>";
+                 
+              }
+             ?>
+          </select>
+          <input type="text" placeholder="Combien ?" name="nombre">
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Envoyez</button>
+        </form>
 </html>
