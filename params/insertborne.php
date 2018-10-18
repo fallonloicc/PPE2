@@ -17,6 +17,6 @@
 <script>
 					setTimeout(function()
 					{
-					document.location.href="/test.php";
+					document.location.href="/PPE2/PPE2/test.php";
 					},1250);
 </script>

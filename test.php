@@ -25,9 +25,9 @@
             <?php
               include('params/db.php');
               $req ='SELECT * FROM consommables';
-              $oui = $bdd->query($req);
+              $f = $bdd->query($req);
 
-              while($requete = $oui->fetch())
+              while($request = $f->fetch())
               {
                 echo "<option value ='".$requete->idConsosommables."'>".$requete->libelle."</option>";
               }
@@ -36,6 +36,23 @@
           <input type="text" placeholder="Combien ?" name="nombre">
           <button type="submit" class="btn btn-primary" id="sendMessageButton">Envoyez</button>
         </form>
+
+    <h1>Voici nos bornes</h1>
+    <?php
+
+    include('params/db.php');
+
+    $requete = 'SELECT * FROM bornes';
+    $q = $bdd->query($requete);
+
+    while ($w = $q->fetch())
+    {
+      echo "<p>".$w->libelle.".      Prix:".$w->prix."</p>";
+    }
+
+
+
+    ?>
 
     </body>
   </html>
