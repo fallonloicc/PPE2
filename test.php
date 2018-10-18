@@ -1,4 +1,5 @@
 <html>
+
   <body>
   <h1>Ajouter Bornes</h1>
     <form action="params/insertborne.php" method="POST">
@@ -47,10 +48,8 @@
 
     while ($w = $q->fetch())
     {
-      echo "<p>".$w->libelle.". Prix: ".$w->prix."€</p>";
+      echo "<a name='".$w->idBornes."'>".$w->libelle.". Prix: ".$w->prix."€</a><br>";
     }
-
-
 
     ?>
 
