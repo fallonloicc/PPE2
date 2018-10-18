@@ -29,7 +29,7 @@
 
               while($request = $f->fetch())
               {
-                echo "<option value ='".$requete->idConsosommables."'>".$requete->libelle."</option>";
+                echo "<option value ='".$request->idConsosommables."'>".$request->libelle."</option>";
               }
              ?>
           </select>
@@ -47,7 +47,7 @@
 
     while ($w = $q->fetch())
     {
-      echo "<p>".$w->libelle.".      Prix:".$w->prix."</p>";
+      echo "<p>".$w->libelle.". Prix: ".$w->prix."€</p>";
     }
 
 
