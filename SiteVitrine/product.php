@@ -317,7 +317,7 @@ session_start();
 
 										<div class="block2-btn-addcart w-size1 trans-0-4">
 											<!-- Button -->
-											<a href="panier/panier.php?action=ajout&amp;l=Borne 1&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
+											<a href="cart.php?action=ajout&amp;l=Borne 1&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
 										</div>
 									</div>
 								</div>
@@ -348,7 +348,7 @@ session_start();
 
 										<div class="block2-btn-addcart w-size1 trans-0-4">
 											<!-- Button -->
-											<a href="panier/panier.php?action=ajout&amp;l=Borne 2&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
+											<a href="cart.php?action=ajout&amp;l=Borne 2&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
 										</div>
 									</div>
 								</div>
@@ -379,7 +379,7 @@ session_start();
 
 										<div class="block2-btn-addcart w-size1 trans-0-4">
 											<!-- Button -->
-											<a href="panier/panier.php?action=ajout&amp;l=Borne 3&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
+											<a href="cart.php?action=ajout&amp;l=Borne 3&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
 										</div>
 									</div>
 								</div>
@@ -410,7 +410,7 @@ session_start();
 
 										<div class="block2-btn-addcart w-size1 trans-0-4">
 											<!-- Button -->
-											<a href="panier/panier.php?action=ajout&amp;l=Borne 4&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
+											<a href="cart.php?action=ajout&amp;l=Borne 4&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
 										</div>
 									</div>
 								</div>
@@ -445,7 +445,7 @@ session_start();
 
 										<div class="block2-btn-addcart w-size1 trans-0-4">
 											<!-- Button -->
-											<a href="panier/panier.php?action=ajout&amp;l=Borne 5&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
+											<a href="cart.php?action=ajout&amp;l=Borne 5&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
 										</div>
 									</div>
 								</div>
@@ -476,7 +476,7 @@ session_start();
 
 										<div class="block2-btn-addcart w-size1 trans-0-4">
 											<!-- Button -->
-											<a href="panier/panier.php?action=ajout&amp;l=Borne 6&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
+											<a href="cart.php?action=ajout&amp;l=Borne 6&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
 										</div>
 									</div>
 								</div>
@@ -507,7 +507,7 @@ session_start();
 
 										<div class="block2-btn-addcart w-size1 trans-0-4">
 											<!-- Button -->
-											<a href="panier/panier.php?action=ajout&amp;l=Borne 7&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
+											<a href="cart.php?action=ajout&amp;l=Borne 7&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
 										</div>
 									</div>
 								</div>
@@ -538,7 +538,7 @@ session_start();
 
 										<div class="block2-btn-addcart w-size1 trans-0-4">
 											<!-- Button -->
-											<a href="panier/panier.php?action=ajout&amp;l=Borne 8&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
+											<a href="cart.php?action=ajout&amp;l=Borne 8&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
 										</div>
 									</div>
 								</div>
@@ -568,7 +568,7 @@ session_start();
 
 										<div class="block2-btn-addcart w-size1 trans-0-4">
 											<!-- Button -->
-											<a href="panier/panier.php?action=ajout&amp;l=Borne 9&amp;q=1&amp;p=100"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
+											<a href="cart.php?action=ajout&amp;l=Borne 9&amp;q=1&amp;p=100"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
 										</div>
 									</div>
 								</div>
