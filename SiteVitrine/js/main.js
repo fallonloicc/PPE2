@@ -79,7 +79,6 @@
         sub_menu_is_showed = -1;
     });
 
-
      /*[ Fixed Header ]
     ===========================================================*/
     var posWrapHeader = $('.topbar').height();
