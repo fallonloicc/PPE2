@@ -37,6 +37,10 @@
 		<link rel="stylesheet" type="text/css" href="css/util.css">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<!--===============================================================================================-->
+		<script type="text/javascript">
+			var stateObj = { foo: "cart" };
+			history.pushState(stateObj, "page 2", "cart.php");
+		</script>
 	</head>
 	<body class="animsition">
 		<!-- header fixed -->
