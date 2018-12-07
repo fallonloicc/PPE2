@@ -8,7 +8,6 @@
       <input type="text" placeholder="Adresse IP" name="ip">
       <button type="submit" class="btn btn-primary" id="sendMessageButton">Envoyez</button>
     </form>
-  </body>
 
   <h1>Ajouter Consommable</h1>
     <form action="params/insertconso.php" method="POST">
@@ -19,4 +18,19 @@
       <button type="submit" class="btn btn-primary" id="sendMessageButton">Envoyez</button>
     </form>
   </body>
+
+  <?php
+
+    include('params/db.php');
+
+    $requete = 'SELECT * FROM bornes';
+
+    $query = $bdd->query($requete);
+
+    while($donnees = $query->fetch())
+    {
+      echo $donnees->libelle."<br>";
+    }
+
+   ?>
 </html>
