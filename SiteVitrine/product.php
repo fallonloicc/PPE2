@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -87,8 +87,8 @@ session_start();
 						<a href="account.php"><?php if(isset($_SESSION['email']))
 						echo $_SESSION['email'];?>
 					</a>
-				</span>	
-				<?php 
+				</span>
+				<?php
 				if(isset($_SESSION['email'])) echo '<a href="logout.php" class="header-wrapicon1 dis-block m-l-30">Deconnexion</a>';
 				else echo '<a href="formlogin.php" class="header-wrapicon1 dis-block m-l-30">Connexion</a>';
 				?>
@@ -192,8 +192,8 @@ session_start();
 							<span class="topbar-email">
 								<a href="logout.php"><?php if(isset($_SESSION['email']))
 								echo $_SESSION['email'];?></a>
-							</span>	
-							<?php 
+							</span>
+							<?php
 							if(isset($_SESSION['email'])) echo '<a href="logout.php" class="header-wrapicon1 dis-block m-l-30">Deconnexion</a>';
 							else echo '<a href="formlogin.php" class="header-wrapicon1 dis-block m-l-30">Connexion</a>';
 							?>
@@ -303,287 +303,88 @@ session_start();
 
 					<!-- Product -->
 					<div class="row">
-						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-							<!-- Block2 -->
-							<div class="block2">
-								<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-									<img src="images/item-01.jpg" alt="IMG-PRODUCT">
 
-									<div class="block2-overlay trans-0-4">
-										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-										</a>
+						<?php
 
-										<div class="block2-btn-addcart w-size1 trans-0-4">
-											<!-- Button -->
-											<a href="cart.php?action=ajout&amp;l=Borne 1&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
-										</div>
-									</div>
-								</div>
+							include('params/db.php');
+	            $req ='SELECT * FROM bornes';
+	            $oui = $bdd->query($req);
 
-								<div class="block2-txt p-t-20">
-									<div class="block2-name dis-block s-text3 p-b-5">
-										Borne 1 
-									</div>
+	            while($requete = $oui->fetch())
+	            {
+	              echo '
+													<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+														<!-- Block2 -->
+														<div class="block2">
+															<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+																<img src="'.$requete->image.'" alt="IMG-PRODUCT">
 
-									<span class="block2-price m-text6 p-r-5">
-										$75.00
-									</span>
-								</div>
-							</div>
-						</div>
+																<div class="block2-overlay trans-0-4">
+																	<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+																		<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+																		<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+																	</a>
 
-						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-							<!-- Block2 -->
-							<div class="block2">
-								<div class="block2-img wrap-pic-w of-hidden pos-relative">
-									<img src="images/item-02.jpg" alt="IMG-PRODUCT">
+																	<div class="block2-btn-addcart w-size1 trans-0-4">
+																		<!-- Button -->
+																		<a href="cart.php?action=ajout&amp;l=Borne 1&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
+																	</div>
+																</div>
+															</div>
 
-									<div class="block2-overlay trans-0-4">
-										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-										</a>
+															<div class="block2-txt p-t-20">
+																<div class="block2-name dis-block s-text3 p-b-5">
+																	'.$requete->libelle.'
+																</div>
 
-										<div class="block2-btn-addcart w-size1 trans-0-4">
-											<!-- Button -->
-											<a href="cart.php?action=ajout&amp;l=Borne 2&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
-										</div>
-									</div>
-								</div>
+																<span class="block2-price m-text6 p-r-5">
+																	'.$requete->prix.'€
+																</span>
+															</div>
+														</div>
+													</div>
+													';
+						   }
 
-								<div class="block2-txt p-t-20">
-									<div class="block2-name dis-block s-text3 p-b-5">
-										Borne 2 
-									</div>
+							 $req ='SELECT * FROM consommables';
+ 	            $oui = $bdd->query($req);
 
-									<span class="block2-price m-text6 p-r-5">
-										$92.50
-									</span>
-								</div>
-							</div>
-						</div>
+ 	            while($requete = $oui->fetch())
+ 	            {
+ 	              echo '
+ 													<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+ 														<!-- Block2 -->
+ 														<div class="block2">
+ 															<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+ 																<img src="'.$requete->image.'" alt="IMG-PRODUCT">
 
-						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-							<!-- Block2 -->
-							<div class="block2">
-								<div class="block2-img wrap-pic-w of-hidden pos-relative">
-									<img src="images/item-03.jpg" alt="IMG-PRODUCT">
+ 																<div class="block2-overlay trans-0-4">
+ 																	<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+ 																		<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+ 																		<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+ 																	</a>
 
-									<div class="block2-overlay trans-0-4">
-										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-										</a>
+ 																	<div class="block2-btn-addcart w-size1 trans-0-4">
+ 																		<!-- Button -->
+ 																		<a href="cart.php?action=ajout&amp;l=Borne 1&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
+ 																	</div>
+ 																</div>
+ 															</div>
 
-										<div class="block2-btn-addcart w-size1 trans-0-4">
-											<!-- Button -->
-											<a href="cart.php?action=ajout&amp;l=Borne 3&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
-										</div>
-									</div>
-								</div>
+ 															<div class="block2-txt p-t-20">
+ 																<div class="block2-name dis-block s-text3 p-b-5">
+ 																	'.$requete->libelle.'
+ 																</div>
 
-								<div class="block2-txt p-t-20">
-									<div class="block2-name dis-block s-text3 p-b-5">
-										Borne 3 
-									</div>
-
-									<span class="block2-price m-text6 p-r-5">
-										$165.90
-									</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-							<!-- Block2 -->
-							<div class="block2">
-								<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-									<img src="images/item-04.jpg" alt="IMG-PRODUCT">
-
-									<div class="block2-overlay trans-0-4">
-										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-										</a>
-
-										<div class="block2-btn-addcart w-size1 trans-0-4">
-											<!-- Button -->
-											<a href="cart.php?action=ajout&amp;l=Borne 4&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
-										</div>
-									</div>
-								</div>
-
-								<div class="block2-txt p-t-20">
-									<div class="block2-name dis-block s-text3 p-b-5">
-										Borne 4
-									</div>
-
-									<span class="block2-oldprice m-text7 p-r-5">
-										$29.50
-									</span>
-
-									<span class="block2-newprice m-text8 p-r-5">
-										$15.90
-									</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-							<!-- Block2 -->
-							<div class="block2">
-								<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-									<img src="images/item-05.jpg" alt="IMG-PRODUCT">
-
-									<div class="block2-overlay trans-0-4">
-										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-										</a>
-
-										<div class="block2-btn-addcart w-size1 trans-0-4">
-											<!-- Button -->
-											<a href="cart.php?action=ajout&amp;l=Borne 5&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
-										</div>
-									</div>
-								</div>
-
-								<div class="block2-txt p-t-20">
-									<div class="block2-name dis-block s-text3 p-b-5">
-										Bornes 5
-									</div>
-
-									<span class="block2-price m-text6 p-r-5">
-										$75.00
-									</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-							<!-- Block2 -->
-							<div class="block2">
-								<div class="block2-img wrap-pic-w of-hidden pos-relative">
-									<img src="images/item-06.jpg" alt="IMG-PRODUCT">
-
-									<div class="block2-overlay trans-0-4">
-										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-										</a>
-
-										<div class="block2-btn-addcart w-size1 trans-0-4">
-											<!-- Button -->
-											<a href="cart.php?action=ajout&amp;l=Borne 6&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
-										</div>
-									</div>
-								</div>
-
-								<div class="block2-txt p-t-20">
-									<div class="block2-name dis-block s-text3 p-b-5">
-										Borne 6
-									</div>
-
-									<span class="block2-price m-text6 p-r-5">
-										$92.50
-									</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-							<!-- Block2 -->
-							<div class="block2">
-								<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-									<img src="images/item-07.jpg" alt="IMG-PRODUCT">
-
-									<div class="block2-overlay trans-0-4">
-										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-										</a>
-
-										<div class="block2-btn-addcart w-size1 trans-0-4">
-											<!-- Button -->
-											<a href="cart.php?action=ajout&amp;l=Borne 7&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
-										</div>
-									</div>
-								</div>
-
-								<div class="block2-txt p-t-20">
-									<div class="block2-name dis-block s-text3 p-b-5">
-										Borne 7
-									</div>
-
-									<span class="block2-price m-text6 p-r-5">
-										$75.00
-									</span>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-							<!-- Block2 -->
-							<div class="block2">
-								<div class="block2-img wrap-pic-w of-hidden pos-relative">
-									<img src="images/item-08.jpg" alt="IMG-PRODUCT">
-
-									<div class="block2-overlay trans-0-4">
-										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-										</a>
-
-										<div class="block2-btn-addcart w-size1 trans-0-4">
-											<!-- Button -->
-											<a href="cart.php?action=ajout&amp;l=Borne 8&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
-										</div>
-									</div>
-								</div>
-
-								<div class="block2-txt p-t-20">
-									<div class="block2-name dis-block s-text3 p-b-5">
-										Borne 8
-									</div>
-
-									<span class="block2-price m-text6 p-r-5">
-										$92.50
-									</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-							<!-- Block2 -->
-							<div class="block2">
-								<div class="block2-img wrap-pic-w of-hidden pos-relative">
-									<img src="images/item-09.jpg" alt="IMG-PRODUCT">
-
-									<div class="block2-overlay trans-0-4">
-										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-										</a>
-
-										<div class="block2-btn-addcart w-size1 trans-0-4">
-											<!-- Button -->
-											<a href="cart.php?action=ajout&amp;l=Borne 9&amp;q=1&amp;p=100"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
-										</div>
-									</div>
-								</div>
-
-								<div class="block2-txt p-t-20">
-									<div class="block2-name dis-block s-text3 p-b-5">
-										Borne 9
-									</div>
-
-									<span class="block2-price m-text6 p-r-5">
-										$92.50
-									</span>
-								</div>
-							</div>
-						</div>
+ 																<span class="block2-price m-text6 p-r-5">
+ 																	'.$requete->prix.'€
+ 																</span>
+ 															</div>
+ 														</div>
+ 													</div>
+ 													';
+ 						   }
+						   ?>
 					</div>
 				</div>
 			</div>

@@ -84,8 +84,8 @@
 						<a href="account.php"><?php if(isset($_SESSION['email']))
 						echo $_SESSION['email'];?>
 					</a>
-				</span>	
-				<?php 
+				</span>
+				<?php
 				if(isset($_SESSION['email'])) echo '<a href="logout.php" class="header-wrapicon1 dis-block m-l-30">Deconnexion</a>';
 				else echo '<a href="formlogin.php" class="header-wrapicon1 dis-block m-l-30">Connexion</a>';
 				?>
@@ -97,14 +97,11 @@
 					<!--<div class="header-cart header-dropdown">
 						<div class="header-cart-buttons">
 							<div class="header-cart-wrapbtn">
-
 								<a href="cart.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 									View Cart
 								</a>
 							</div>
-
 							<div class="header-cart-wrapbtn">
-
 								<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 									Check Out
 								</a>
@@ -189,8 +186,8 @@
 						<span class="topbar-email">
 							<a href="logout.php"><?php if(isset($_SESSION['email']))
 							echo $_SESSION['email'];?></a>
-						</span>	
-						<?php 
+						</span>
+						<?php
 						if(isset($_SESSION['email'])) echo '<a href="logout.php" class="header-wrapicon1 dis-block m-l-30">Deconnexion</a>';
 						else echo '<a href="formlogin.php" class="header-wrapicon1 dis-block m-l-30">Connexion</a>';
 						?>
@@ -283,186 +280,83 @@
 					<!-- - -->
 					<div class="tab-pane fade show active" id="best-seller" role="tabpanel">
 						<div class="row">
-							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
-								<!-- Block2 -->
-								<div class="block2">
-									<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-										<img src="images/item-01.jpg" alt="IMG-PRODUCT">
+							<?php
 
-										<div class="block2-overlay trans-0-4">
-											<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+									$req ='SELECT * FROM bornes';
+									$oui = $bdd->query($req);
+									$i = 0;
+
+									while($requete = $oui->fetch())
+									{
+										if ($i <= 3)
+										{
+												echo '
+												<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+												<!-- Block2 --> <div class="block2">
+
+												<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+												<img src="'.$requete->image.'" alt="IMG-PRODUCT">
+												<div class="block2-overlay trans-0-4">
+												<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
 												<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
 												<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-											</a>
-										</div>
-									</div>
+												</a> </div> </div> <div class="block2-txt p-t-20">
+												<div class="block2-name dis-block s-text3 p-b-5"> '.$requete->libelle.' </div>
+												</div>
+												</div>
+												</div>
 
-									<div class="block2-txt p-t-20">
-										<div class="block2-name dis-block s-text3 p-b-5">
-											Borne 1
-										</div>
-									</div>
-								</div>
-							</div>
+												';
+												$i++;
+											}
+										}
 
-							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
-								<!-- Block2 -->
-								<div class="block2">
-									<div class="block2-img wrap-pic-w of-hidden pos-relative">
-										<img src="images/item-02.jpg" alt="IMG-PRODUCT">
-
-										<div class="block2-overlay trans-0-4">
-											<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-												<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-												<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-											</a>
-										</div>
-									</div>
-
-									<div class="block2-txt p-t-20">
-										<div class="block2-name dis-block s-text3 p-b-5">
-											Borne 2 
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
-								<!-- Block2 -->
-								<div class="block2">
-									<div class="block2-img wrap-pic-w of-hidden pos-relative">
-										<img src="images/item-03.jpg" alt="IMG-PRODUCT">
-
-										<div class="block2-overlay trans-0-4">
-											<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-												<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-												<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-											</a>
-										</div>
-									</div>
-
-									<div class="block2-txt p-t-20">
-										<div class="block2-name dis-block s-text3 p-b-5">
-											Borne 3
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
-								<!-- Block2 -->
-								<div class="block2">
-									<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-										<img src="images/item-04.jpg" alt="IMG-PRODUCT">
-
-										<div class="block2-overlay trans-0-4">
-											<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-												<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-												<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-											</a>
-										</div>
-									</div>
-
-									<div class="block2-txt p-t-20">
-										<div class="block2-name dis-block s-text3 p-b-5">
-											Borne 4
-										</div>
-									</div>
-								</div>
-							</div>
+										?>
 						</div>
 					</div>
 
 					<!--  -->
 					<div class="tab-pane fade" id="sale" role="tabpanel">
 						<div class="row">
-							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
-								<!-- Block2 -->
-								<div class="block2">
-									<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-										<img src="images/items-4.jpg" alt="IMG-PRODUCT">
 
+							<?php
+
+									$req ='SELECT * FROM consommables';
+									$oui = $bdd->query($req);
+
+									$i = 0;
+
+									while($requete = $oui->fetch())
+									{
+										if ($i <=3)
+										{
+
+
+										echo '
+										<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+										<!-- Block2 --> <div class="block2">
+
+										<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+										<img src="'.$requete->image.'" alt="IMG-PRODUCT">
 										<div class="block2-overlay trans-0-4">
-											<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-												<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-												<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-											</a>
+										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+										<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+										<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+										</a> </div> </div> <div class="block2-txt p-t-20">
+										<div class="block2-name dis-block s-text3 p-b-5"> '.$requete->libelle.' </div>
 										</div>
-									</div>
-
-									<div class="block2-txt p-t-20">
-										<div class="block2-name dis-block s-text3 p-b-5">
-											L'imprimante Epson
 										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
-								<!-- Block2 -->
-								<div class="block2">
-									<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-										<img src="images/items-2.jpg" alt="IMG-PRODUCT">
-
-										<div class="block2-overlay trans-0-4">
-											<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-												<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-												<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-											</a>
 										</div>
-									</div>
 
-									<div class="block2-txt p-t-20">
-										<div class="block2-name dis-block s-text3 p-b-5">
-											Cartouche d'encre
-										</div>
-									</div>
-								</div>
-							</div>
+										';
 
-							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
-								<!-- Block2 -->
-								<div class="block2">
-									<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-										<img src="images/items-3.jpg" alt="IMG-PRODUCT">
+										$i++;
+									}
+								}
 
-										<div class="block2-overlay trans-0-4">
-											<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-												<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-												<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-											</a>
-										</div>
-									</div>
+										?>
 
-									<div class="block2-txt p-t-20">
-										<div class="block2-name dis-block s-text3 p-b-5">
-											Encore des cartouches...
-										</div>
-									</div>
-								</div>
-							</div>
 
-							<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
-								<!-- Block2 -->
-								<div class="block2">
-									<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-										<img src="images/items-1.jpg" alt="IMG-PRODUCT">
-
-										<div class="block2-overlay trans-0-4">
-											<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-												<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-												<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-											</a>
-										</div>
-									</div>
-
-									<div class="block2-txt p-t-20">
-										<div class="block2-name dis-block s-text3 p-b-5">
-											Feuille de qualité
-										</div>
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -756,7 +650,6 @@
 				swal(nameProduct, "is added to cart !", "success");
 			});
 		});
-
 		$('.block2-btn-addwishlist').each(function(){
 			var nameProduct = $(this).parent().parent().parent().find('.block2-name').php();
 			$(this).on('click', function(){
