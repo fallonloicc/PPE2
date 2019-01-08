@@ -1,6 +1,10 @@
-<?php
+<?php 
 session_start();
-include('header.php');
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<?php 
+	include('header.php');
 ?>
 
 	<!-- Title Page -->
@@ -16,7 +20,7 @@ include('header.php');
 			<div class="row">
 				<div class="col-md-4 p-b-30">
 					<div class="hov-img-zoom">
-						<img src="images/banner-14.jpg" alt="IMG-ABOUT">
+						<img src="images/banner-13.jpg" alt="IMG-ABOUT">
 					</div>
 				</div>
 
@@ -30,9 +34,9 @@ include('header.php');
 					</p>
 
 					<div class="bo13 p-l-29 m-l-9 p-b-10">
-						<h3><span class="dec-tec">“</span>Tu ne prends pas une photographie, tu la manges.<span class="dec-tec">”<br>
+						<h3><span class="dec-tec">“</span>Tu ne prends pas une photographie, tu la créée.<span class="dec-tec">”<br>
 							<span class="s-text7">
-								- Thorel Loïck.
+								- ADAM WARLOCK.
 							</span>
 						</div>
 					</div>

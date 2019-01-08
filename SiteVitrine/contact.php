@@ -1,8 +1,11 @@
-<?php
+<?php 
 session_start();
-include('header.php');
 ?>
-
+<!DOCTYPE html>
+<html lang="fr">
+<?php 
+	include('header.php');
+?>
 
 	<!-- Title Page -->
 	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/heading-pages-02.jpg);">
@@ -17,7 +20,8 @@ include('header.php');
 			<div class="row">
 				<div class="col-md-6 p-b-30">
 					<div class="p-r-20 p-r-0-lg">
-						<div class="contact-map size21" id="google_map" data-map-x="40.614439" data-map-y="-73.926781" data-pin="images/icons/icon-position-map.png" data-scrollwhell="0" data-draggable="1"></div>
+<!-- 						<div class="contact-map size21" id="google_map" data-map-x="0" data-map-y="0" data-pin="images/icons/icon-position-map.png" data-scrollwhell="0" data-draggable="1"></div> -->
+							<iframe class="contact-map size21" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2530.7778729575316!2d3.0610462!3d50.6312431!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c2d58f9cdc4245%3A0xbe29aa60f6d4418c!2s159+Boulevard+de+la+Libert%C3%A9%2C+59800+Lille!5e0!3m2!1sfr!2sfr!4v1542365308868" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 					</div>
 				</div>
 
@@ -40,7 +44,7 @@ include('header.php');
 						</div>
 
 						<textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="message" placeholder="Message"></textarea>
-
+						<div class="g-recaptcha m-text26 p-b-36 p-t-15" data-sitekey="6LfHlnQUAAAAACGYAEHoQOnR1xL9B0EVp2_DaAmW"></div>
 						<div class="w-size25">
 							<!-- Button -->
 							<button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">
@@ -228,10 +232,10 @@ include('header.php');
 		});
 	</script>
 	<!--===============================================================================================-->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
 	<script src="js/map-custom.js"></script>
 	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	<script src='https://www.google.com/recaptcha/api.js?hl=fr'></script>
 
 </body>
 </html>
