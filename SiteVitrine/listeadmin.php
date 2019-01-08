@@ -9,35 +9,64 @@ include('header.php');
 			A propos
 		</h2>
 	</section>
+<div class="oui" style="margin-left: 25%; width: 100%;">
 
-	<!-- content page -->
-	<section class="bgwhite p-t-66 p-b-38">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4 p-b-30">
-					<div class="hov-img-zoom">
-						<img src="images/banner-14.jpg" alt="IMG-ABOUT">
-					</div>
+
+	<div class="particulier">
+		<?php
+
+			include('params/db.php');
+			$req ='SELECT * FROM clients WHERE validation LIKE 1 AND siret IS NULL';
+			$oui = $bdd->query($req);
+
+			echo "<h3>Particuliers :</h3>";
+
+			while($requete = $oui->fetch())
+			{
+				echo '<p>_'.$requete->nom.' '.$requete->prenom.'.<br/> Contacte: '.$requete->email.' / '.$requete->tel.'</p><img width="100" src="'.$requete->photoprofil.'"><br/>';
+
+			 }
+
+			 ?>
+
+	</div>
+	<br><br>
+				<div class="entreprise">
+					<?php
+					include('params/db.php');
+					$req ='SELECT * FROM clients WHERE validation LIKE 1 AND siret IS NOT NULL';
+					$oui = $bdd->query($req);
+
+					echo "<h3>Entreprises :</h3>";
+
+					while($requete = $oui->fetch())
+					{
+						echo '<p>_'.$requete->nom.' '.$requete->prenom.'. Siret: '.$requete->siret.'.<br/> Contacte: '.$requete->email.' / '.$requete->tel.'</p><img width="100" src="'.$requete->photoprofil.'"><br>';
+
+					 }
+				 ?>
 				</div>
 
-				<div class="col-md-8 p-b-30">
-					<h3 class="m-text26 p-t-15 p-b-16">
-						Notre Histoire
-					</h3>
+				<br><br>
+							<div class="A Valider">
+								<?php
+								include('params/db.php');
+								$req ='SELECT * FROM clients WHERE validation LIKE 0';
+								$oui = $bdd->query($req);
 
-					<p class="p-b-28">
-						Phasellus egestas nisi nisi, lobortis ultricies risus semper nec. Vestibulum pharetra ac ante ut pellentesque. Curabitur fringilla dolor quis lorem accumsan, vitae molestie urna dapibus. Pellentesque porta est ac neque bibendum viverra. Vivamus lobortis magna ut interdum laoreet. Donec gravida lorem elit, quis condimentum ex semper sit amet. Fusce eget ligula magna. Aliquam aliquam imperdiet sodales. Ut fringilla turpis in vehicula vehicula. Pellentesque congue ac orci ut gravida. Aliquam erat volutpat. Donec iaculis lectus a arcu facilisis, eu sodales lectus sagittis. Etiam pellentesque, magna vel dictum rutrum, neque justo eleifend elit, vel tincidunt erat arcu ut sem. Sed rutrum, turpis ut commodo efficitur, quam velit convallis ipsum, et maximus enim ligula ac ligula. Vivamus tristique vulputate ultricies. Sed vitae ultrices orci.
-					</p>
+								echo "<h3>A valider :</h3>";
 
-					<div class="bo13 p-l-29 m-l-9 p-b-10">
-						<h3><span class="dec-tec">“</span>Tu ne prends pas une photographie, tu la manges.<span class="dec-tec">”<br>
-							<span class="s-text7">
-								- Thorel Loïck.
-							</span>
-						</div>
-					</div>
-				</div>
-			</div>
+								while($requete = $oui->fetch())
+								{
+									echo '<p>_'.$requete->nom.' '.$requete->prenom.' '.$requete->siret.'.<br/> Contacte: '.$requete->email.' / '.$requete->tel.'</p><img width="100" src="'.$requete->photoprofil.'"><br>';
+
+								 }
+							 ?>
+							</div>
+</div>
+
+
+
 		</section>
 
 

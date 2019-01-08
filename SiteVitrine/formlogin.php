@@ -11,13 +11,12 @@
 <body>
 	<div class="cotn_principal">
 		<div class="cont_centrar">
-			<div style="position: absolute; top: 5px; left: 5px;"><a href="index.html"><input type="button" class="btn_login" value="Accueil"/></a></div>
 			<div class="cont_login">
 				<div class="cont_info_log_sign_up">
 					<div class="col_md_login">
 						<div class="cont_ba_opcitiy">
-							<h2>Login</h2>  
-							<p>Cliquez-ici pour vous connecter</p> 
+							<h2>Login</h2>
+							<p>Cliquez-ici pour vous connecter</p>
 							<button class="btn_login" onclick="cambiar_login()">Login</button>
 						</div>
 					</div>
@@ -51,16 +50,17 @@
 					<div class="cont_form_sign_up">
 						<a href="" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
 						<h2>INSCRIPTION</h2>
-						<form action="" method="POST">
+						<form action="index.php" method="POST" enctype="multipart/form-data">
 							<input type="text" name="nom" placeholder="Nom" />
 							<input type="text" name="prenom" placeholder="Prénom" />
-							<input type="Password" name="passwd" placeholder="Password" />							
+							<input type="Password" name="passwd" placeholder="Password" />
 							<input type="email" name="email" placeholder="Email" />
 							<input type="tel" name="tel" placeholder="Téléphone" />
 							<input type="text" name="cp" placeholder="Code Postal" />
 							<input type="text" name="ville" placeholder="Ville" />
 							<input type="text" name="adresse" placeholder="Adresse" />
 							<input type="text" name="siret" placeholder="Siret" />
+							<input type="file" name="photo" placeholder="Photo de profil" />
 							<input class="btn_login" type="submit" name="sub" value="INSCRIPTION">
 						</form>
 					</div>
