@@ -96,7 +96,8 @@ include('header.php');
 
 																	<div class="block2-btn-addcart w-size1 trans-0-4">
 																		<!-- Button -->
-																		<a href="cart.php?action=ajout&amp;l='.$requete->libelle.'&amp;q=1&amp;p='.$requete->prix.'"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
+																		<a href="cart.php?action=ajout&amp;l='.$requete->libelle.'&amp;q=1&amp;p='.$requete->prix.'"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Ajouter"></a>
+																		<a href="product-detail.php?id='.$requete->idBornes.'"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Description"></a>
 																	</div>
 																</div>
 															</div>
@@ -115,7 +116,7 @@ include('header.php');
 													';
 						   }
 
-							 $req ='SELECT * FROM consommables';
+							$req ='SELECT * FROM consommables';
  	            $oui = $bdd->query($req);
 
  	            while($requete = $oui->fetch())
