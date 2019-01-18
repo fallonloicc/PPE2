@@ -27,7 +27,7 @@ include('header.php');
 
 						<ul class="p-b-54">
 							<li class="p-t-4">
-								<a href="#" class="s-text13 active1">
+								<a href="#" class="s-text13" id="refreshbtn">
 									All
 								</a>
 							</li>
@@ -56,19 +56,6 @@ include('header.php');
 				</div>
 
 				<div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
-					<!--  -->
-					<div class="flex-sb-m flex-w p-b-35">
-						<div class="flex-w">
-							<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
-								<select class="selection-2" name="sorting">
-									<option>Tri par défaut</option>
-									<option>Populaire</option>
-									<option>Prix: - au +</option>
-									<option>Prix: + au -</option>
-								</select>
-							</div>
-						</div>
-					</div>
 
 					<!-- Product -->
 					<div class="row">
@@ -97,7 +84,7 @@ include('header.php');
 																	<div class="block2-btn-addcart w-size1 trans-0-4">
 																		<!-- Button -->
 																		<a href="cart.php?action=ajout&amp;l='.$requete->libelle.'&amp;q=1&amp;p='.$requete->prix.'"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Ajouter"></a>
-																		<a href="product-detail.php?id='.$requete->idBornes.'"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Description"></a>
+																		<a href="product-detail.php?id='.$requete->idBornes.'&type=1"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Description"></a>
 																	</div>
 																</div>
 															</div>
@@ -136,7 +123,8 @@ include('header.php');
 
  																	<div class="block2-btn-addcart w-size1 trans-0-4">
  																		<!-- Button -->
- 																		<a href="cart.php?action=ajout&amp;l=Borne 1&amp;q=1&amp;p=75"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Add to carte"></a>
+ 																		<a href="cart.php?action=ajout&amp;l='.$requete->libelle.'&amp;q=1&amp;p='.$requete->prix.'"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Ajouter"></a>
+																		<a href="product-detail.php?id='.$requete->idConsosommables.'&type=2"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Description"></a>
  																	</div>
  																</div>
  															</div>
@@ -385,6 +373,11 @@ include('header.php');
 	</script>
 	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	<script>
+			$("#refreshbtn").click(function(){
+				location.reload();
+			});
+	</script>
 
 </body>
 </html>

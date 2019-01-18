@@ -3,8 +3,14 @@
 	include('params/db.php');
 
 	$id = $_GET['id'];
+	$type =$_GET['type'];
 
-	$req ='SELECT * FROM bornes WHERE idBornes LIKE '.$id.'';
+	if ($type = "1") {
+		$req ='SELECT * FROM bornes WHERE idBornes LIKE '.$id.'';
+	}
+	if ($type = "2") {
+		$req ='SELECT * FROM consommables WHERE idConsosommables LIKE '.$id.'';
+	}
 	$oui = $bdd->query($req);
 	$requete = $oui->fetch();
 ?>
@@ -605,9 +611,11 @@
 	<script type="text/javascript" src="vendor/sweetalert/sweetalert.min.js"></script>
 
 	<script>
+
 		$("#ajoutbtn").click(function(){
 			var qte = $("#ajoutval").val();
-			document.location.href="cart.php?action=ajout&amp;l=<?php echo $requete->libelle ?>&amp;q="qte"&amp;p=<?php echo $requete->prix ?>">;
+			var go = "cart.php?action=ajout&l=<?php echo $requete->libelle ?>&q="+ qte +"&p=<?php echo $requete->prix ?>"
+			document.location.href= go;
 		});
 	</script>
 
