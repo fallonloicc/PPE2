@@ -27,19 +27,19 @@ include('header.php');
 
 						<ul class="p-b-54">
 							<li class="p-t-4">
-								<a href="#" class="s-text13" id="refreshbtn">
+								<a href="product.php" class="s-text13">
 									All
 								</a>
 							</li>
 
 							<li class="p-t-4">
-								<a href="#" class="s-text13">
+								<a href="product.php?conso=1" class="s-text13">
 									Bornes
 								</a>
 							</li>
 
 							<li class="p-t-4">
-								<a href="#" class="s-text13">
+								<a href="product.php?conso=2" class="s-text13">
 									Consommables
 								</a>
 							</li>
@@ -61,91 +61,109 @@ include('header.php');
 					<div class="row">
 
 						<?php
-
+							error_reporting(0);
 							include('params/db.php');
-	            $req ='SELECT * FROM bornes';
-	            $oui = $bdd->query($req);
+							$conso = $_GET['conso'];
 
-	            while($requete = $oui->fetch())
-	            {
-	              echo '
-													<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-														<!-- Block2 -->
-														<div class="block2">
-															<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-																<img src="'.$requete->image.'" alt="IMG-PRODUCT">
+		            $req ='SELECT * FROM bornes';
+		            $oui = $bdd->query($req);
 
-																<div class="block2-overlay trans-0-4">
-																	<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-																		<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-																		<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-																	</a>
 
-																	<div class="block2-btn-addcart w-size1 trans-0-4">
-																		<!-- Button -->
-																		<a href="cart.php?action=ajout&amp;l='.$requete->libelle.'&amp;q=1&amp;p='.$requete->prix.'"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Ajouter"></a>
-																		<a href="product-detail.php?id='.$requete->idBornes.'&type=1"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Description"></a>
+								if ($conso !=2)
+								{
+
+			            while($requete = $oui->fetch())
+			            {
+			              echo '
+															<div class="col-sm-12 col-md-6 col-lg-4 p-b-50" class="borne">
+																<!-- Block2 -->
+																<div class="block2">
+																	<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+																		<img src="'.$requete->image.'" alt="IMG-PRODUCT">
+
+																		<div class="block2-overlay trans-0-4">
+																			<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+																				<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+																				<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+																			</a>
+
+																			<div class="block2-btn-addcart w-size1 trans-0-4">
+																				<!-- Button -->
+																				<a href="cart.php?action=ajout&amp;l='.$requete->libelle.'&amp;q=1&amp;p='.$requete->prix.'"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Ajouter"></a>
+																				<a href="product-detail.php?id='.$requete->idBornes.'&type=1"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Description"></a>
+																			</div>
+																		</div>
+																	</div>
+
+																	<div class="block2-txt p-t-20">
+																		<div class="block2-name dis-block s-text3 p-b-5">
+																			'.$requete->libelle.'
+																		</div>
+
+																		<span class="block2-price m-text6 p-r-5">
+																			'.$requete->prix.'€
+																		</span>
 																	</div>
 																</div>
 															</div>
+															';
+								   }
+							 	}
+								 ?>
+						 <!-- </span>
+						 <span id="conso"> -->
 
-															<div class="block2-txt p-t-20">
-																<div class="block2-name dis-block s-text3 p-b-5">
-																	'.$requete->libelle.'
-																</div>
+							 <?php
 
-																<span class="block2-price m-text6 p-r-5">
-																	'.$requete->prix.'€
-																</span>
-															</div>
-														</div>
-													</div>
-													';
-						   }
+							if ($conso !=1)
+							{
 
-							$req ='SELECT * FROM consommables';
- 	            $oui = $bdd->query($req);
+								$req ='SELECT * FROM consommables';
+	 	            $oui = $bdd->query($req);
 
- 	            while($requete = $oui->fetch())
- 	            {
- 	              echo '
- 													<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
- 														<!-- Block2 -->
- 														<div class="block2">
- 															<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
- 																<img src="'.$requete->image.'" alt="IMG-PRODUCT">
+	 	            while($requete = $oui->fetch())
+	 	            {
+	 	              echo '
+	 													<div class="col-sm-12 col-md-6 col-lg-4 p-b-50" class="conso">
+	 														<!-- Block2 -->
+	 														<div class="block2">
+	 															<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+	 																<img src="'.$requete->image.'" alt="IMG-PRODUCT">
 
- 																<div class="block2-overlay trans-0-4">
- 																	<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
- 																		<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
- 																		<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
- 																	</a>
+	 																<div class="block2-overlay trans-0-4">
+	 																	<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+	 																		<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+	 																		<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+	 																	</a>
 
- 																	<div class="block2-btn-addcart w-size1 trans-0-4">
- 																		<!-- Button -->
- 																		<a href="cart.php?action=ajout&amp;l='.$requete->libelle.'&amp;q=1&amp;p='.$requete->prix.'"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Ajouter"></a>
-																		<a href="product-detail.php?id='.$requete->idConsosommables.'&type=2"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Description"></a>
- 																	</div>
- 																</div>
- 															</div>
+	 																	<div class="block2-btn-addcart w-size1 trans-0-4">
+	 																		<!-- Button -->
+	 																		<a href="cart.php?action=ajout&amp;l='.$requete->libelle.'&amp;q=1&amp;p='.$requete->prix.'"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Ajouter"></a>
+																			<a href="product-detail.php?id='.$requete->idConsosommables.'&type=2"><input type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" value="Description"></a>
+	 																	</div>
+	 																</div>
+	 															</div>
 
- 															<div class="block2-txt p-t-20">
- 																<div class="block2-name dis-block s-text3 p-b-5">
- 																	'.$requete->libelle.'
- 																</div>
+	 															<div class="block2-txt p-t-20">
+	 																<div class="block2-name dis-block s-text3 p-b-5">
+	 																	'.$requete->libelle.'
+	 																</div>
 
- 																<span class="block2-price m-text6 p-r-5">
- 																	'.$requete->prix.'€
- 																</span>
- 															</div>
- 														</div>
- 													</div>
- 													';
- 						   }
+	 																<span class="block2-price m-text6 p-r-5">
+	 																	'.$requete->prix.'€
+	 																</span>
+	 															</div>
+	 														</div>
+	 													</div>
+	 													';
+	 						   }
+							 }
 						   ?>
+						 <!-- </span> -->
 					</div>
 				</div>
 			</div>
+		</div>
 		</section>
 
 
@@ -373,11 +391,6 @@ include('header.php');
 	</script>
 	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
-	<script>
-			$("#refreshbtn").click(function(){
-				location.reload();
-			});
-	</script>
 
 </body>
 </html>
