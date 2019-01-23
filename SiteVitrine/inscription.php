@@ -29,112 +29,81 @@
 </head>
 <body>
 
-	<?php
-include ('params/db.php');
-
-if(isset($_POST['user'])&& isset($_POST['passwd'])){
-	//echo "republique!   check" . "<br>";
-	$login = addslashes($_POST['user']);
-	$passwd = md5($_POST['passwd']);
-	$reqUsr = 'SELECT * FROM clients WHERE email LIKE "'. $login.'"';
-	if ($recupUsr = $bdd->query($reqUsr))
-	{
-		if($usr = $recupUsr->fetch())
-		{
-			if($usr->passwd == $passwd)
-			{
-				//echo "BIENVENUE DANS L'AUBERGE ! ";
-				$_SESSION['email'] = $usr->email ;
-				$_SESSION['nom'] =$usr->nom ;
-				$_SESSION['prenom'] = $usr->prenom;
-			}
-			else
-			{
-				echo " FAKE PASSWORD !! ";
-			}
-		}
-		else
-		{
-			echo "mauvais login ou password";
-		}
-	}
-	else
-	{
-		echo "  erreur dans la requete";
-	}
-}
-else
-{
-}
-
-if (isset($_POST['nom'], $_POST['prenom'], $_POST['passwd'], $_POST['email'], $_POST['tel'], $_POST['cp'], $_POST['ville'], $_POST['adresse'])) {
-
-			$nom = addslashes($_POST['nom']);
-			$prenom = addslashes($_POST['prenom']);
-			$passwd = md5($_POST['passwd']);
-			$email = addslashes($_POST['email']);
-			$tel = addslashes($_POST['tel']);
-			$cp = addslashes($_POST['cp']);
-			$ville = addslashes($_POST['ville']);
-			$adresse = addslashes($_POST['adresse']);
-
-			if ($_POST['siret'] != "")
-			{
-					$siret = addslashes($_POST['siret']);
-					$req = 'INSERT INTO clients (nom, prenom, passwd, email, tel, cp, ville, adresse, siret)
-					VALUES ("' . $nom . '", "' . $prenom . '", "' . $passwd . '", "' . $email . '","' . $tel . '","'. $cp.'","'. $ville.'", "'. $adresse.'", "'.$siret.'")';
-
-			}
-			else
-			{
-
-					$req = 'INSERT INTO clients (nom, prenom, passwd, email, tel, cp, ville, adresse)
-					VALUES ("' . $nom . '", "' . $prenom . '", "' . $passwd . '", "' . $email . '","' . $tel . '","'. $cp.'","'. $ville.'", "'. $adresse.'")';
-
-			}
-			$insertUsr = $bdd->query($req);
-		}
-?>
-
-
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
 					<span class="login100-form-title-1">
-						Connexion.
+						Sign In
 					</span>
 				</div>
 
-				<form class="login100-form validate-form" method="POST">
-					<div class="wrap-input100 validate-input m-b-26" data-validate="Entrez un email valide">
-						<span class="label-input100">E-mail</span>
-						<input class="input100" type="email" name="user" placeholder="Entrez votre email">
+				<form id="theform" name="formulaire" action="formlogin.php" method="POST" class="login100-form validate-form">
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Nom requis">
+						<span class="label-input100">Nom</span>
+						<input class="input100" type="text" name="nom" placeholder="Entrez nom">
 						<span class="focus-input100"></span>
 					</div>
-
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Mot de passe requis">
-						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="passwd" placeholder="Entrez mot de passe">
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Prénom requis">
+						<span class="label-input100">Prénom</span>
+						<input class="input100" type="text" name="prenom" placeholder="Entrez prénom">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Email requis">
+						<span class="label-input100">E-mail</span>
+						<input class="input100" type="email" name="email" placeholder="Entrez votre email">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Mot de passe requis">
+						<span class="label-input100">Mot de passe</span>
+						<input class="input100" id="passwd" type="passwd" name="passwd" placeholder="Entrez un mot de passe" value="">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Confirmation requise">
+						<span class="label-input100">Confirmation mot de passe</span>
+						<input class="input100" id="passwd2" type="Password" name="confpasswd" placeholder="Confirmez votre mot de passe" value="">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Numéro de téléphone requis">
+						<span class="label-input100">Téléphone</span>
+						<input class="input100" id="number" type="number" name="tel" placeholder="Entrez votre numéro de téléphone">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Code postal requis">
+						<span class="label-input100">Code Postal</span>
+						<input class="input100" type="text" name="cp" placeholder="Entrez votre code postal">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Ville requise">
+						<span class="label-input100">Ville</span>
+						<input class="input100" type="text" name="ville" placeholder="Entrez votre ville">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Adresse requise">
+						<span class="label-input100">Adresse</span>
+						<input class="input100" type="text" name="adresse" placeholder="Entrez votre adresse">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 m-b-26">
+						<span class="label-input100">Siret</span>
+						<input class="input100" type="text" name="siret" placeholder="Entrez un siret">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="flex-sb-m w-full p-b-30">
 						<div>
-							<a href="Inscription.php" class="txt1">
-								Inscrivez-vous ici.
+							<a href="formlogin.php" class="txt1">
+								Connectez-vous ici.
 							</a>
 						</div>
 					</div>
-
 					<div class="container-login100-form-btn">
-						<input class="login100-form-btn" type="submit" name="sub" value="CONNEXION">
+						<input class="login100-form-btn" type="submit" name="sub" value="INSCRIPTION" onclick="checkForm()">
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-
 	<!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->
@@ -151,6 +120,26 @@ if (isset($_POST['nom'], $_POST['prenom'], $_POST['passwd'], $_POST['email'], $_
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	<script type="text/javascript">
+		function checkForm(){
+			if(document.getElementById('passwd').value=="" || document.getElementById('passwd2').value ==""){
 
+			}else{
+				if(document.getElementById('passwd').value != document.getElementById('passwd2').value){
+					alert("Login ou Password incorrect");
+					return false;
+				}else
+				{
+					return;
+				}
+			}
+		$("#number").keypress(function() {
+			if(this.value.length != 9) {
+				this.value=[];
+			};
+		});
+		}
+
+	</script>
 </body>
 </html>
