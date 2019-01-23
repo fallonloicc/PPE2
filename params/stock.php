@@ -4,6 +4,7 @@
   $choix = $_POST['choix'];
   $nombre = $_POST['nombre'];
 
+<<<<<<< HEAD
   $req ='SELECT stock FROM consommables WHERE idConsosommables LIKE "'.$choix.'"';
   $obj = $bdd->query($req);
 
@@ -29,3 +30,13 @@
   					document.location.href="/PPE2/PPE2/test.php";
   					},1250);
   </script>
+=======
+  $req ='SELECT stock FROM consommables WHERE idConsosommables LIKE '.$choix.'';
+  $oui = $bdd->query($req);
+
+  $non = $oui->fetch();
+  $yep = $non->stock + $nombre;
+  echo $yep;
+
+ ?>
+>>>>>>> Loïck
