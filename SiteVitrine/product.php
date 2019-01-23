@@ -197,19 +197,19 @@ include('header.php');
 
 					<ul>
 						<li class="p-b-9">
-							<a href="#" class="s-text7">
+							<a href="product.php" class="s-text7">
 								All
 							</a>
 						</li>
 
 						<li class="p-b-9">
-							<a href="#" class="s-text7">
+							<a href="product.php?conso=1" class="s-text7">
 								Bornes
 							</a>
 						</li>
 
 						<li class="p-b-9">
-							<a href="#" class="s-text7">
+							<a href="product.php?conso=2" class="s-text7">
 								Consommables
 							</a>
 						</li>
