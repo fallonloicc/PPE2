@@ -111,7 +111,9 @@
 					echo "</table>";
 					echo "</div>";
 					echo "</div>";
-					echo "<a href='product.php'><input type='button' class='flex-c-m bg1 bo-rad-23 hov1 s-text1 trans-0-4' style='padding: 0 15px 0 15px; margin: 5% 0 0 0;' value='Revenir à vos achats'></a>";
+					echo "<input type=\"submit\" class='flex-c-m bg1 bo-rad-23 hov1 s-text1 trans-0-4' style='padding: 0 15px 0 15px;  margin: 2% 0 1% 3.5%;' value=\"Rafraichir\"/>";
+					echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
+					echo "<a href='product.php'><input type='button' class='flex-c-m bg1 bo-rad-23 hov1 s-text1 trans-0-4' style=' padding: 0 15px 0 15px;' value='Revenir à vos achats'></a>";
 					echo '<div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">';
 					echo '<div class="flex-w flex-sb-m p-t-26 p-b-30">';
 					echo "<label for='event-select'><b>Choisir l'évènement prévu :</b></label><select id='event-select'>";
@@ -119,19 +121,17 @@
 					$oui = $bdd->query($req);
 
 					while($requete = $oui->fetch())
-					{
+					{ 
 						echo "<option value='".$requete->libelle."'>".$requete->libelle."</option>";
 					}
 					echo "</select>";
-					echo '<span class="m-text22 w-size19 w-full-sm"> Total : </span>';
-					echo "<span class='m-text22 w-size19 w-full-sm'>".MontantGlobal()." €</span>";
 
 					echo "<tr><td colspan=\"4\">";
-					echo "<input type=\"submit\" class='flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4' value=\"Rafraichir\"/>";
-					echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
 
 					echo "</td></tr></br>";
-					echo"<div id='paypal-button-container'></div>";
+					echo '<span class="m-text22 w-size19 w-full-sm"> Total : </span>';
+					echo "<span class='m-text22 w-size19 w-full-sm'>".MontantGlobal()." €</span>";
+					echo"<div style='margin-left: 40%; margin-top: 10%;' id='paypal-button-container'></div>";
 				}
 				echo "</table>";
 				echo "</div>";
@@ -326,10 +326,10 @@ env: 'sandbox', // sandbox | production
 
 // Specify the style of the button
 style: {
-  layout: 'vertical',  // horizontal | vertical
-  size:   'medium',    // medium | large | responsive
-  shape:  'rect',      // pill | rect
-  color:  'gold'       // gold | blue | silver | white | black
+  layout: 'horizontal',  // horizontal | vertical
+  size:   'responsive',    // medium | large | responsive
+  shape:  'pill',      // pill | rect
+  color:  'black'       // gold | blue | silver | white | black
 },
 
 // Specify allowed and disallowed funding sources
@@ -339,11 +339,11 @@ style: {
 // - paypal.FUNDING.CREDIT
 // - paypal.FUNDING.ELV
 funding: {
-  allowed: [
-    paypal.FUNDING.CARD,
-    paypal.FUNDING.CREDIT
-  ],
-  disallowed: []
+	allowed: [
+	paypal.FUNDING.CARD,
+	paypal.FUNDING.CREDIT
+	],
+	disallowed: []
 },
 
 // Enable Pay Now checkout flow (optional)
@@ -352,37 +352,37 @@ commit: true,
 // PayPal Client IDs - replace with your own
 // Create a PayPal app: https://developer.paypal.com/developer/applications/create
 client: {
-  sandbox: 'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
-  production: '<insert production client id>'
+	sandbox: 'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+	production: '<insert production client id>'
 },
 
 payment: function (data, actions) {
-  return actions.payment.create({
-    payment: {
-      transactions: [
-        {
-          amount: {
-            total: '0.01',
-            currency: 'USD'
-          }
-        }
-      ]
-    }
-  });
+	return actions.payment.create({
+		payment: {
+			transactions: [
+			{
+				amount: {
+					total: '0.01',
+					currency: 'USD'
+				}
+			}
+			]
+		}
+	});
 },
 
 onAuthorize: function (data, actions) {
-  return actions.payment.execute()
-    .then(function () {
-      window.alert('Payment Complete!');
-    });
+	return actions.payment.execute()
+	.then(function () {
+		window.alert('Payment Complete!');
+	});
 }
 }, '#paypal-button-container');
 </script>
 <script type="text/javascript">
 	$("#paypal-button-container").click( function(){
 		<?php
-			$req = "INSERT INTO "
+		$req = "INSERT INTO "
 		?>
 	});
 </script>
