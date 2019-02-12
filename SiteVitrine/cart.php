@@ -121,7 +121,7 @@
 					$oui = $bdd->query($req);
 
 					while($requete = $oui->fetch())
-					{ 
+					{
 						echo "<option value='".$requete->libelle."'>".$requete->libelle."</option>";
 					}
 					echo "</select>";
@@ -362,8 +362,8 @@ payment: function (data, actions) {
 			transactions: [
 			{
 				amount: {
-					total: '0.01',
-					currency: 'USD'
+					total: '123',
+					currency: '€'
 				}
 			}
 			]
