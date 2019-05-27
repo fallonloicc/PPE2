@@ -11,6 +11,10 @@ function creationPanier(){
       $_SESSION['panier']['qteProduit'] = array();
       $_SESSION['panier']['prixProduit'] = array();
       $_SESSION['panier']['verrou'] = false;
+      $_SESSION['panier']['debut']= array();
+      $_SESSION['panier']['fin']= array();
+      $_SESSION['panier']['id']= array();
+
    }
    return true;
 }
@@ -21,26 +25,34 @@ function creationPanier(){
  * @param string $libelleProduit
  * @param int $qteProduit
  * @param float $prixProduit
+ * @param string $debut
+ * @param string $fin
+ * @param string $id
  * @return void
  */
-function ajouterArticle($libelleProduit,$qteProduit,$prixProduit){
+function ajouterArticle($libelleProduit,$qteProduit,$prixProduit,$debut,$fin,$id){
 
    //Si le panier existe
    if (creationPanier() && !isVerrouille())
    {
       //Si le produit existe déjà on ajoute seulement la quantité
       $positionProduit = array_search($libelleProduit,  $_SESSION['panier']['libelleProduit']);
+      $debutProduit =  array_search($debut, $_SESSION['panier']['debut']);
+      $finProduit =  array_search($fin, $_SESSION['panier']['fin']);
 
-      if ($positionProduit !== false)
+
+      if($positionProduit !== false && $debutProduit !== false && $finProduit !== false)
       {
          $_SESSION['panier']['qteProduit'][$positionProduit] += $qteProduit ;
-      }
-      else
+      }else
       {
          //Sinon on ajoute le produit
          array_push( $_SESSION['panier']['libelleProduit'],$libelleProduit);
          array_push( $_SESSION['panier']['qteProduit'],$qteProduit);
          array_push( $_SESSION['panier']['prixProduit'],$prixProduit);
+         array_push( $_SESSION['panier']['debut'],$debut);
+         array_push( $_SESSION['panier']['fin'],$fin);
+         array_push( $_SESSION['panier']['id'],$id);
       }
    }
    else
@@ -80,9 +92,11 @@ function modifierQTeArticle($libelleProduit,$qteProduit){
 /**
  * Supprime un article du panier
  * @param $libelleProduit
+ * @param string $debut
+ * @param string $fin
  * @return unknown_type
  */
-function supprimerArticle($libelleProduit){
+function supprimerArticle($libelleProduit,$debut,$fin){
    //Si le panier existe
    if (creationPanier() && !isVerrouille())
    {
@@ -91,15 +105,21 @@ function supprimerArticle($libelleProduit){
       $tmp['libelleProduit'] = array();
       $tmp['qteProduit'] = array();
       $tmp['prixProduit'] = array();
+      $tmp['debut'] = array();
+      $tmp['fin'] = array();
+      $tmp['id'] = array();
       $tmp['verrou'] = $_SESSION['panier']['verrou'];
 
       for($i = 0; $i < count($_SESSION['panier']['libelleProduit']); $i++)
       {
-         if ($_SESSION['panier']['libelleProduit'][$i] !== $libelleProduit)
+         if ($_SESSION['panier']['libelleProduit'][$i] !== $libelleProduit OR $_SESSION['panier']['debut'][$i] !== $debut OR $_SESSION['panier']['fin'][$i] !== $fin)
          {
             array_push( $tmp['libelleProduit'],$_SESSION['panier']['libelleProduit'][$i]);
             array_push( $tmp['qteProduit'],$_SESSION['panier']['qteProduit'][$i]);
             array_push( $tmp['prixProduit'],$_SESSION['panier']['prixProduit'][$i]);
+            array_push( $tmp['debut'],$_SESSION['panier']['debut'][$i]);
+            array_push( $tmp['fin'],$_SESSION['panier']['fin'][$i]);
+            array_push( $tmp['id'],$_SESSION['panier']['id'][$i]);
          }
 
       }

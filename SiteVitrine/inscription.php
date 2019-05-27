@@ -92,7 +92,7 @@
 
 					<div class="flex-sb-m w-full p-b-30">
 						<div>
-							<a href="formlogin.php" class="txt1">
+							<a href="index.php" class="txt1">
 								Connectez-vous ici.
 							</a>
 						</div>

@@ -16,6 +16,7 @@
 	$requete = $oui->fetch();
 ?>
 
+
 	<!-- Product Detail -->
 	<div class="container bgwhite p-t-35 p-b-80">
 		<div class="flex-w flex-sb">
@@ -39,6 +40,7 @@
 				</span>
 
 				<!--  -->
+				
 				<div class="p-t-33 p-b-60">
 					<div class="flex-r-m flex-w p-t-10">
 						<div class="w-size16 flex-m flex-w">
@@ -56,14 +58,24 @@
 
 							<div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
 								<!-- Button -->
-								<button id="ajoutbtn" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+								<button id="ajoutbtn" type="submit" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
 									Ajouter au panier
 								</button>
 							</div>
 						</div>
 					</div>
 				</div>
-
+				<?php if ($type == "1") { ?>
+					<div id="calendrier">
+					<span>du</span>
+					<input type="text" id="debut" class="datepicker" name="debut" autocomplete="off" />				
+					<span>au</span>
+					<input type="text" id="fin" class="datepicker" name="fin" autocomplete="off"/>
+					</div>
+				<?php } ?>
+				
+				
+				<br>
 				<!--  -->
 				<div class="wrap-dropdown-content bo6 p-t-15 p-b-14 active-dropdown-content">
 					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
@@ -415,9 +427,11 @@
 	<div id="dropDownSelect2"></div>
 
 
-
-	<!--===============================================================================================-->
+	
+	
 	<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="calendrier.js"></script>
 	<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
 	<!--===============================================================================================-->
@@ -425,7 +439,24 @@
 	<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
 	<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/select2/select2.min.js"></script>
-	<script type="text/javascript">
+	
+	<script type="text/javascript">	
+
+
+
+		$('.datepicker').datepicker({
+    		dateFormat: "dd/mm/yy",
+    		minDate : 0,
+    		monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+  			dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+  			dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven','Sam'],
+  			dayNamesMin :['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve','Sa'],
+  			onSelect: function(date){
+  				$('#fin').datepicker('option', 'minDate', date);
+  			}
+		});
+
+
 		$(".selection-1").select2({
 			minimumResultsForSearch: 20,
 			dropdownParent: $('#dropDownSelect1')
@@ -488,11 +519,31 @@
 <!--===============================================================================================-->
 <script src="js/main.js"></script>
 <script>
-
+		
 		$("#ajoutbtn").click(function(){
+			if(<?php echo $type ?>== "2" )
+			{
+				var deb = "00/00/0000";
+				var fin = "00/00/0000";
+			}
+			if (<?php echo $type ?>== "1" ) 
+			{
+				var deb = $("#debut").val();
+				var fin = $("#fin").val();
+			}
+			
+			if(deb == "" || fin == "")
+			{
+				window.alert("Veuiller remplir les dates");
+				var styleCal = document.getElementById("calendrier");
+				styleCal.style.border = "1px solid red";
+			}else{
 			var qte = $("#ajoutval").val();
-			var go = "cart.php?action=ajout&l=<?php echo $requete->libelle ?>&q="+ qte +"&p=<?php echo $requete->prix ?>"
+			var go = "cart.php?action=ajout&l=<?php echo $requete->libelle ?>&q="+ qte +"&p=<?php echo $requete->prix ?>&d="+ deb +"&f="+ fin +"&id=<?php echo $id ?>" 
 			document.location.href= go;
+			}
+			
+		
 		});
 	</script>
 </body>

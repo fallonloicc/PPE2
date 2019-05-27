@@ -14,11 +14,9 @@ if(isset($_POST['user'])&& isset($_POST['passwd'])){
 		{
 			if($usr->passwd == $passwd)
 			{
-				//echo "BIENVENUE DANS L'AUBERGE ! ";
 				$_SESSION['email'] = $usr->email ;
 				$_SESSION['nom'] =$usr->nom ;
-				$_SESSION['prenom'] = $usr->prenom;
-				
+				$_SESSION['prenom'] = $usr->prenom;				
 			}
 			else
 			{
@@ -52,34 +50,20 @@ if (isset($_POST['nom'], $_POST['prenom'], $_POST['passwd'], $_POST['email'], $_
 	$ville = addslashes($_POST['ville']);
 	$adresse = addslashes($_POST['adresse']);
 	$siret = addslashes($_POST['siret']);
-	$photo = $_POST['photo'];
-	echo $photo;
 
 	if ($siret != "")
 	{
-		if ($photo !="") {
-			$req = 'INSERT INTO clients (nom, prenom, passwd, email, tel, cp, ville, adresse, siret, photoprofil)
-			VALUES ("' . $nom . '", "' . $prenom . '", "' . $passwd . '", "' . $email . '","' . $tel . '","'. $cp.'","'. $ville.'", "'. $adresse.'", "'. $siret.'", "'.$photo.'")';
-		}
-		else
-		{
+		
 			$req = 'INSERT INTO clients (nom, prenom, passwd, email, tel, cp, ville, adresse, siret)
 			VALUES ("' . $nom . '", "' . $prenom . '", "' . $passwd . '", "' . $email . '","' . $tel . '","'. $cp.'","'. $ville.'", "'. $adresse.'", "'.$siret.'")';
-		}
+		
 
 	}
 	else
 	{
-		if ($photo !="")
-		{
-			$req = 'INSERT INTO clients (nom, prenom, passwd, email, tel, cp, ville, adresse, photoprofil)
-			VALUES ("' . $nom . '", "' . $prenom . '", "' . $passwd . '", "' . $email . '","' . $tel . '","'. $cp.'","'. $ville.'", "'. $adresse.'", "'.$photo.'")';
-		}
-		else
-		{
+		
 			$req = 'INSERT INTO clients (nom, prenom, passwd, email, tel, cp, ville, adresse)
 			VALUES ("' . $nom . '", "' . $prenom . '", "' . $passwd . '", "' . $email . '","' . $tel . '","'. $cp.'","'. $ville.'", "'. $adresse.'")';
-		}
 
 	}
 

@@ -1637,7 +1637,7 @@ li.sale-noti > a {
 /*[ Block2 ]
 ///////////////////////////////////////////////////////////
 */
-.block2-labelsale::before,
+.block2-sale::before,
 .block2-labelnew::before
 {
   z-index: 100;

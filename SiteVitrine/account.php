@@ -20,16 +20,7 @@ include('header.php');
         <div class="row">
             <div class="col-md-4 p-b-30">
                 <div class="hov-img-zoom">
-                    <img src="<?php include('params/db.php');
-
-                    $req ='SELECT * FROM clients WHERE email ="'.$_SESSION["email"].'"';
-                    $oui = $bdd->query($req);
-
-                    while($requete = $oui->fetch())
-                    {
-                        echo $requete->photoprofil;
-                    }
-                    ?>" alt="IMG-ABOUT">
+                    
                 </div>
             </div>
 
@@ -47,12 +38,13 @@ include('header.php');
 
                     while($requete = $oui->fetch())
                     {
-                        echo "<p class=\'p-b-28\'><u>Prénom :</u> ".$requete->prenom."</p></br>
-                              <p class=\'p-b-28\'><u>Nom :</u> ".$requete->nom."</p></br>
-                              <p class=\'p-b-28\'><u>Tel :</u> ".$requete->tel."</p></br>
-                              <p class=\'p-b-28\'><u>Adresse :</u> ".$requete->adresse."</p></br>
-                              <p class=\'p-b-28\'><u>Ville :</u> ".$requete->ville."</p></br>
-                              <p class=\'p-b-28\'><u>Code postal :</u> ".$requete->cp."</p></br>";
+                        echo "<p class=\'p-b-28\'><u>Prénom</u> : ".$requete->prenom."</p></br>
+                              <p class=\'p-b-28\'><u>Nom</u> : ".$requete->nom."</p></br>
+                              <p class=\'p-b-28\'><u>Tel</u> : ".$requete->tel."</p></br>
+                              <p class=\'p-b-28\'><u>Adresse</u> : ".$requete->adresse."</p></br>
+                              <p class=\'p-b-28\'><u>Ville</u> : ".$requete->ville."</p></br>
+                              <p class=\'p-b-28\'><u>Code postal</u> : ".$requete->cp."</p></br>
+                              <a href='changemdp.php' class='txt1'>Changer votre mot de passe</a>";
                     }
 
                 ?>
@@ -72,13 +64,15 @@ include('header.php');
     </div>
 </section>
 
+
+
 <?php include('footer.php') ?>
 
 <!-- Back to top -->
 <div class="btn-back-to-top bg0-hov" id="myBtn">
-			<span class="symbol-btn-back-to-top">
-				<i class="fa fa-angle-double-up" aria-hidden="true"></i>
-			</span>
+	<span class="symbol-btn-back-to-top">
+		<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+	</span>
 </div>
 
 <!-- Container Selection -->

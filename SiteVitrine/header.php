@@ -34,6 +34,7 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<!--===============================================================================================-->
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 </head>
 <body class="animsition">
 	<!-- header fixed -->
@@ -87,7 +88,7 @@
 				</span>
 				<?php
 				if(isset($_SESSION['email'])) echo '<a href="logout.php" class="header-wrapicon1 dis-block m-l-30">Deconnexion</a>';
-				else echo '<a href="formlogin.php" class="header-wrapicon1 dis-block m-l-30">Connexion</a>';
+				else echo '<a href="index.php" class="header-wrapicon1 dis-block m-l-30">Connexion</a>';
 				?>
 				<span class="linedivide1"></span>
 
